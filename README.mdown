@@ -1,0 +1,25 @@
+# OpenURI Recorder
+
+## What does it do?
+captures your openuri "gets" and executes them with curl (cli),
+the response (including headers) is then saved in plain text files
+with a manifest for you to work out what goes where later.
+
+This is so that you can quickly ascertain all of your openuri queries
+for use with "fakeweb". Handy if you're trying to add fixtures / local 
+http for before a flight.
+
+## Why?
+
+I had 30 minutes spare and I needed to get all the remote web service calls together for [my app](http://ffolio.net) before a 20 hour flight.
+
+## How to use it
+
+    require 'openuri_recorder'
+
+Thats it! Don't use it with anything else that overrides openuri or else it probably just won't work properly.
+Files will be dumped into a directory named `open-uri-recordings` with a `MANIFEST` for you to peice together.
+
+Fakeweb allows you to register urls and return a whole response (like the one this library will record for you) using: `Fakeweb.register_uri("http://fake.tld/page", :response => '/path/to/your/response')`
+
+### I suck, there are no specs.
